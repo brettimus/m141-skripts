@@ -14,10 +14,6 @@ rmds <- list.files(pattern="*\\.(R|r)(M|m)(D|d)")
 if (is.na(rmds[1])) {
   print("Could not find any .rmd labs. Are you sure you're in the right directory?")
 } else {
-  # Record number of files without .RMD extension
-  #
-  all <- list.files()
-  num_bad_labs <- length(all) - length(rmds)
   
   # Create a directory for the .HTML files
   #
@@ -47,11 +43,15 @@ if (is.na(rmds[1])) {
   ################################################################################################
   # BEGIN the search for deviant files
   #
+  
+  # Record number of files without .RMD extension
+  all <- list.files()
+  num_bad_labs <- length(all) - length(rmds)
+
   if (num_bad_labs != 0) {
     
     names <- character()    # char vector for deviants' names
     exts <- character()     # char vector for deviant filetypes
-    
     for (i in 1:length(all)) {
       # This is inefficient but it's fine since we only deal with max 50 files...
       if (!all[i] %in% rmds) {
