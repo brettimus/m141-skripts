@@ -47,9 +47,7 @@ if (is.na(rmds[1])) {
   # Record number of files without .RMD extension
   all <- list.files()
   num_bad_labs <- length(all) - length(rmds)
-
   if (num_bad_labs != 0) {
-    
     names <- character()    # char vector for deviants' names
     exts <- character()     # char vector for deviant filetypes
     for (i in 1:length(all)) {
@@ -62,7 +60,6 @@ if (is.na(rmds[1])) {
 	exts <- append(exts,ext)
       }
      }
-     
     # Create dataframe of deviants
     bad_eggs <- data.frame(NAMES=names,EXTS=exts, stringsAsFactors=F)
     # Alert user
