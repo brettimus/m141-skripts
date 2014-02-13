@@ -14,13 +14,11 @@ rmds <- list.files(pattern="*\\.(R|r)(M|m)(D|d)")
 if (is.na(rmds[1])) {
   print("Could not find any .rmd labs. Are you sure you're in the right directory?")
 } else {
-
   # Record number of files without .RMD extension
   #
   all <- list.files()
   num_bad_labs <- length(all) - length(rmds)
-
-
+  
   # Create a directory for the .HTML files
   #
   html_dir <- file.path(getwd(),"labs_html")
@@ -59,7 +57,6 @@ if (is.na(rmds[1])) {
       if (!all[i] %in% rmds) {
         name <- strsplit(all[i],"_")[[1]][1]   # strsplit(..) returns a list
 	ext <- strsplit(all[i],"\\.")[[1]][2]  # NOTE use of "\\." for regex
-	
 	# Add the deviant to the vectors! Mwahaha!
 	names <- append(names,name)
 	exts <- append(exts,ext)
@@ -68,11 +65,9 @@ if (is.na(rmds[1])) {
      
     # Create dataframe of deviants
     bad_eggs <- data.frame(NAMES=names,EXTS=exts, stringsAsFactors=F)
-
     # Alert user
     print(paste("There are",num_bad_labs,"labs with improper filetypes."))
     print("I shall list them for you:")
-
     for (i in 1:nrow(bad_eggs)) {
       msg <- paste(bad_eggs[i,1]," submitted a .",bad_eggs[i,2]," file", sep="")
       print(msg)
@@ -83,5 +78,3 @@ if (is.na(rmds[1])) {
   ################################################################################
   
 }
-
-#### End script
