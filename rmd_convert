@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$1" ]
+then
+  mkdir $1
+  tar -C ./$1 -xvzf $1.zip
+  cd $1
+  batch_convert.r
+  echo 'Done.'
+else
+  echo 'ONE ARGUMENT: Enter the name of the .zip file without its extension'
+fi
