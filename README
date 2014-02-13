@@ -1,11 +1,22 @@
 ---------------------------------------------
 | Ad hoc skripts for Math 141 Graders       |
 ---------------------------------------------
+-- YOU NEED TO GIVE THESE EXECUTABLE PERMISSIONS
 
-rmd_convert <<zip_file_name_sans_extension>>
+chmod 755 rmd_convert
+chmod 755 batch_convert.r
+
+-- THEN ADD THE FOLDER THEY'RE IN TO THE $PATH VARIABLE
+
+export PATH=$PATH:path_to_skript_directory
+
+-- This repo contains the following:
+
+rmd_convert < zip_file_name_sans_extension >
 batch_convert.r
 
--- Example usage:
+-- Usage is kind of cumbersome, sorry.
+-- Here's an example,
 --
 -- Download the zip of .rmd files from Moodle
 -- Save as homeworks.zip
@@ -16,13 +27,13 @@ rmd_convert homeworks
 
 -- This will create a new directory called "homeworks"
 -- Then, it will unzip homeworks.zip into homeworks.
--- Next it will call the RScript, batch_convert.r
+-- Next, it will call the RScript, batch_convert.r
 --
 --
 -- batch_convert.r does the following:
 --
 -- ~ loads all the .RMD files in the current directory (homeworks/)
--- ~ creates a directory (lab_html/)
+-- ~ creates a new directory (lab_html/)
 -- ~ converts all .RMD files to .HTML and puts them in lab_html/
 -- ~ outputs the names of students who didn't upload .RMD files
 
