@@ -1,5 +1,11 @@
 #!/usr/bin/Rscript
 
+# Check if knitr is installed
+#
+if (!'knitr' %in% rownames(installed.packages())) {
+  install.packages('knitr')
+}
+
 # Load knitr
 #
 library(knitr)
