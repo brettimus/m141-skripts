@@ -7,6 +7,7 @@ chmod 755 rmd_convert
 chmod 755 batch_convert.r
 
 -- THEN ADD THE FOLDER THEY'RE IN TO THE $PATH VARIABLE
+-- (YOU COULD ALSO ADD THIS TO YOUR ~/.bash_profile)
 
 export PATH=$PATH:path_to_skript_directory
 
