@@ -6,6 +6,7 @@ then
   tar -C ./$1 -xvzf $1.zip
   cd $1
   batch_convert.r
+  cp -r $1/figure $1/labs_html/ 
   echo 'Done.'
 else
   echo 'ONE ARGUMENT: Enter the name of the .zip file without its extension'
